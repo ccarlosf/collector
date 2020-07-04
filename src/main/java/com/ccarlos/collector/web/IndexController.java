@@ -1,14 +1,11 @@
 package com.ccarlos.collector.web;
 
+import com.ccarlos.collector.util.InputMDC;
+import org.jboss.logging.MDC;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * @description: 首页控制器
- * @author: ccarlos
- * @date: 2020/7/4 20:23
- */
 @Slf4j
 @RestController
 public class IndexController {
@@ -52,6 +49,8 @@ public class IndexController {
     @RequestMapping(value = "/index")
     public String index() {
 
+        InputMDC.putMDC();
+
         log.info("我是一条info日志");
 
         log.warn("我是一条warn日志");
@@ -60,5 +59,18 @@ public class IndexController {
 
         return "idx";
     }
+
+
+    @RequestMapping(value = "/err")
+    public String err() {
+        InputMDC.putMDC();
+        try {
+            int a = 1 / 0;
+        } catch (Exception e) {
+            log.error("算术异常", e);
+        }
+        return "err";
+    }
+
 
 }

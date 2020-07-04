@@ -1,4 +1,4 @@
-package com.bfxy.collector.util;
+package com.ccarlos.collector.util;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
