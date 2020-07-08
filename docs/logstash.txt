@@ -16,4 +16,10 @@ pipeline.workers: 16
 
 
 ## 启动logstash
-nohup /usr/local/logstash-6.6.0/bin/logstash -f /usr/local/logstash-6.6.0/script/logstash-script.conf &
+nohup /usr/local/logstash-6.6.0/bin/logstash -f /usr/local/logstash-6.6.0/scrpit/logstash-script.conf &
+/usr/local/logstash-6.6.0/bin/logstash -f /usr/local/logstash-6.6.0/scrpit/logstash-script.conf
+
+查询消费进度
+bin目录
+./kafka-consumer-groups.sh --bootstrap-server 192.168.253.144:9092 --describe --group group02
+./kafka-consumer-groups.sh --bootstrap-server 192.168.253.144:9092 --describe --group error-log-group
